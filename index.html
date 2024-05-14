@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Treedle</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>Treedle <a id="info" href="technical.html">&#9432</a></h2>
+    <div id="export-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="export-popup-close">&times;</span>
+            <div class="popup-title">Export Save</div>
+            <span>Copy the text below, or download it as a file.</span>
+            <textarea id="export-content" readonly></textarea>
+            <button id="export-btn">Download</button>
+        </div>
+    </div>
+    <div id="import-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="import-popup-close">&times;</span>
+            <div class="popup-title">Import Save</div>
+            <span>Copy your save data below, then click Import.</span>
+            <textarea id="import-content"></textarea>
+            <button id="import-btn">Import</button>
+        </div>
+    </div>
+    <div id="restart-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="restart-popup-close">&times;</span>
+            <div class="popup-title">Are you sure?</div>
+            <span>This will also delete your save.
+                Make sure you export it if you want it.</span>
+            <button id="restart-btn">Yes</button>
+        </div>
+    </div>
+    <div id="completed-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="completed-popup-close">&times;</span>
+            <div class="popup-title">Congratulations!</div>
+            <div class="random-text">
+                Wow. You actually went and did it. You played every possible
+                Wordle game. I am currently still working on the statistics
+                viewer, but when that is finished, you will be able to see
+                your stats. In the meantime, remember to Export a copy of your
+                save so that you don't lose all your progress.
+            </div>
+            <div class="random-text"><br>
+                You cannot load nor continue to play a completed game file,
+                so if you want to keep playing, you will need to Restart.
+            </div>
+        </div>
+    </div>
+
+    <div id="invalid-word-popup">Not a word.</div>
+
+    <div id="top-bar">
+        <div onclick="restartClick()" class="top-button">Restart</div>
+        <div onclick="importClick()" class="top-button">Import</div>
+        <div onclick="exportClick()" class="top-button">Export</div>
+        <div id="remaining-words">Remaining words: <span id="remaining"></span></div>
+    </div>
+    <div id="play-area">
+        <div id="guess-area-wrapper">
+            <div id="current-guess" class="word">
+                <div id="letter-1" class="letter"></div>
+                <div id="letter-2" class="letter"></div>
+                <div id="letter-3" class="letter"></div>
+                <div id="letter-4" class="letter"></div>
+                <div id="letter-5" class="letter"></div>
+            </div>
+            <div id="keyarea">
+
+            </div>
+        </div>
+        <div id="past-guesses"></div>
+    </div>
+    <script type="text/javascript" src="loadData.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

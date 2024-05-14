@@ -1,0 +1,285 @@
+body {
+    background-color: #2f2c3a;
+    font-family: verdana;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+p {
+    max-width: 600px;
+}
+
+.centered-text {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    font-size: 36pt;
+}
+
+.letter.midcorrect {
+    background-color: #aa2;
+}
+
+.letter.correct {
+    background-color: #2a2;
+}
+
+.letter {
+    font-size: 3em;
+    color: #fff;
+    background-color: #111;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    border-radius: 3px;
+    border-color: #000;
+    user-select: none;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.word {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* honestly ChatGPT is such a lifesaver for css*/
+#play-area {
+    display: flex; /* Use flexbox layout */
+    height: 100%;
+    justify-content: center;
+}
+
+#guess-area-wrapper {
+    width: 400px;
+    margin-right: 10px; /* Optional margin between elements */
+}
+
+#current-guess, #past-guesses {
+    border: 1px solid #ccc; /* Optional border for visualization */
+    padding: 10px; /* Optional padding for content */
+    width: fit-content;
+}
+
+#past-guesses {
+    border-radius: 5px;
+    min-height: 600px;
+    display: inline-block;
+    min-width: 350px;
+}
+
+#invalid-word-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #af4c4c;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#invalid-word-popup.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+#remaining-words {
+    font-size: 16pt;
+    position: absolute;
+    left: calc(50% + 80px);
+    top: 0;
+}
+
+#remaining {
+    position: absolute;
+    width: 80px;
+    display: inline-block;
+    height: 20px;
+    text-align: right;
+    transition: color 0.5s ease; /* Transition for color change */
+}
+
+#top-bar {
+    margin-bottom: 15px;
+    height: 20px;
+    position: relative;
+    display: block;
+    clear: both;
+    user-select: none;
+}
+
+/* Keyframes animation for fading out the green color */
+@keyframes fadeOutGreen {
+    0% { color: #12b512; }
+    10% { color: #12b512; } /* Maintain green color for half of the animation duration */
+    100% { color: white; }
+}
+
+/* Additional styles for the green color (optional) */
+.green-text {
+    animation: fadeOutGreen 3s forwards; /* Apply the fade-out animation */
+}
+
+.top-button {
+    border-radius: 3px;
+    position: relative;
+    width: 100px;
+    padding: 3px;
+    left: calc(50% - 391px);
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+    background-color: #159;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.top-button:hover {
+    background-color: #37a;
+}
+
+.top-button:active {
+    background-color: #48b;
+}
+
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.popup-content {
+    background-color: #555;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    position: absolute;
+}
+
+.popup-title {
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #faa;
+}
+
+#import-content, #export-content {
+    width: 100%;
+    height: 150px;
+    margin: 10px 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#import-content:focus, #export-content:focus {
+    outline: none;
+}
+
+#import-btn, #export-btn, #restart-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    clear: both;
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.random-text {
+    padding: 4px;
+}
+
+
+
+/* Style for the keyboard container */
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adjust the gap between rows */
+}
+
+/* Style for each row of keys */
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for each key */
+.keyboard-key {
+    padding: 10px;
+    margin: 2px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #666;
+    color: white;
+    min-width: 15px;
+    font-size: 16pt;
+}
+
+/* Additional styling for the keys (optional) */
+.keyboard-key:hover {
+    background-color: #999; /* Change background color on hover */
+}
+
+.keyboard-key:active {
+    background-color: #e0e0e0; /* Change background color on click */
+}
+
+.keyboard-key.incorrect {
+    background-color: #333;
+}
+
+.keyboard-key.midcorrect {
+    background-color: #aa2;
+}
+
+.keyboard-key.correct {
+    background-color: #2a2 !important; /* !important shouldn't matter here */
+}

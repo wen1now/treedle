@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Treedle</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2><a href="index.html">Treedle</a></h2>
+    <div class="centered-text"><div>
+        <p style="color:#cfa">
+            This is a technical explanation of Treedle. For a layman's explanation,
+            click <a href="laymen.html">here</a>.
+        </p>
+        <p>
+            Imagine playing Wordle following a deterministic strategy. This
+            strategy can be represented by a decision tree.
+        </p>
+        <p>
+            Treedle helps you create this decision tree. It initialises a tree 
+            with an <i>open</i> empty root node.
+            At each step, it chooses a random open node of the
+            tree, and asks you what you would play if that was the state of the 
+            Wordle game.
+        </p>
+        <p>
+            After your input, it generates all possible game states that
+            could follow from your guess, adds them as open
+            child nodes, and closes the current node.
+        </p>
+        <p>
+            The game ends when all nodes are closed; in other words, when 
+            every possible game of Wordle has been played.
+        </p>
+        <p>
+            Your score is the total number of guesses you would use if you
+            were to use this decision tree to play every possible game.
+            This works out to be the average number of guesses times
+            the number of words.
+        </p>
+        <p>
+            
+        </p>
+    </div></div>
+</body>
+</html>

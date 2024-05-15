@@ -264,7 +264,6 @@ function importSave(saveString) {
  * Displays an error in loading a save.
  */
 function loadError() {
-    console.log('Load error (exception code 10:21839).');
     alert(`Error loading save. Click Export to export the corrupted save if you\
     want to recover it; otherwise, click Restart to start over.`)
     init();
@@ -279,6 +278,17 @@ function setupKeyboard() {
 
     // Get the container element
     let keyboardContainer = document.getElementById("keyarea");
+
+    let rowContainer = document.createElement("div");
+    rowContainer.classList.add("keyboard-row");
+    // Create a key element
+    let keyElement = document.createElement("div");
+    keyElement.textContent = "Enter >";
+    keyElement.id = 'key-enter';
+    keyElement.addEventListener('click', clickedKey);
+    keyElement.classList.add("keyboard-enter");
+    rowContainer.appendChild(keyElement);
+    keyboardContainer.appendChild(rowContainer);
 
     // Loop through each row
     rows.forEach(row => {
@@ -308,6 +318,8 @@ function clickedKey(_) {
     key = this.innerHTML.toLowerCase();
     if (key == "del") {
         deleteLetter();
+    } else if (key == "enter &gt;") {
+        submitCurrentGuess();
     } else {
         submitLetter(key);
     }
@@ -447,7 +459,6 @@ function happyEffect() {
 
 var _invalidInterval;
 function invalidGuess() {
-    console.log('Invalid guess.');
     document.getElementById('invalid-word-popup').classList.add('visible');
     
     // Automatically hide the alert after 3 seconds

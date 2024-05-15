@@ -109,6 +109,7 @@ h2 {
     position: absolute;
     left: calc(50% + 80px);
     top: 0;
+    white-space: nowrap;
 }
 
 #remaining {
@@ -282,4 +283,24 @@ h2 {
 
 .keyboard-key.correct {
     background-color: #2a2 !important; /* !important shouldn't matter here */
+}
+
+.keyboard-enter {
+    border: 1px solid white;
+    background-color: #159;
+    width: 200px;
+    padding: 3px;
+    text-align: center;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.keyboard-enter:hover {
+    background-color: #37a;
+}
+
+.keyboard-enter:active {
+    background-color: #48b;
 }

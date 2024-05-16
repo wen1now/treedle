@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Treedle</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>Treedle</h2></div>
+    <div class="centered-text">
+    <p>Nothing you do here is automatically saved!
+        Be sure to Export anything you wish to keep.</p>
+    </div></div>
+    <div id="import-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="import-popup-close">&times;</span>
+            <div class="popup-title">Import Save</div>
+            <span>Copy your save data below, then click Import.</span>
+            <textarea id="import-content"></textarea>
+            <button id="import-btn">Import</button>
+        </div>
+    </div>
+    <div id="export-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="export-popup-close">&times;</span>
+            <div class="popup-title">Export Save</div>
+            <span>Copy the text below, or download it as a file.</span>
+            <textarea id="export-content" readonly></textarea>
+            <button id="export-btn">Download</button>
+        </div>
+    </div>
+    <div id="merge-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="merge-popup-close">&times;</span>
+            <div class="popup-title">Merge Save</div>
+            <span>Take the best parts of your tree with another.
+                Both trees must be completed.</span>
+            <textarea id="merge-content"></textarea>
+            <button id="merge-btn">Merge</button>
+        </div>
+    </div>
+
+    <div id="stats-top-bar" class="centered-text"><div>
+        <div onclick="importClick()" class="stats-button">Import
+            <span class="tooltip-text">
+                Import a tree to get started. Partial trees are accepted.
+            </span></div>
+        <div onclick="exportClick()" class="stats-button">Export
+            <span class="tooltip-text">
+                This button felt lonely without a tooltip so I gave it one.
+            </span></div>
+        <div onclick="mergeClick()" class="stats-button">Merge
+            <span class="tooltip-text">
+                Merge your tree with another tree. This
+                takes the difference of the two trees, and takes
+                the best branch of each (by expected value).
+            </span></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="loadData.js"></script>
+    <script type="text/javascript" src="stats.js"></script>
+</body>
+</html>

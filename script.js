@@ -19,7 +19,6 @@ var _currentWord = "";
 /** @type {number} Words left in the tree. */
 var remainingWords;
 
-
 // don't ask why i'm not just using typescript
 
 /**
@@ -81,8 +80,8 @@ function splitNode(node, word) {
                 parent: node,
                 guess: NULL_WORD,
             }
-            node.children.set(s, newNode)
-            activeNodes.push(newNode)
+            node.children.set(s, newNode);
+            activeNodes.push(newNode);
         }
     }
     node.guess = word;
@@ -145,6 +144,9 @@ function sortedKeys(map) {
  * @returns {string}
  */
 function getSaveString() {
+    if (rootNode.children.length == 0) {
+        return localStorage.getItem(SAVE_NAME);
+    }
     var complete = activeNodes.length == 0;
     var s = complete ? ["F_"] : ["P_"];
     var Q = [rootNode];
@@ -330,7 +332,7 @@ function displayNode() {
     document.getElementById('remaining').textContent = remainingWords;
     for (i of "qwertyuiopasdfghjklzxcvbnm") {
         document.getElementById('key-' + i).classList.remove(
-            'correct', 'midcorrect', 'incorrect')
+            'correct', 'midcorrect', 'incorrect');
     }
 
     let container = document.getElementById('past-guesses');
@@ -400,7 +402,7 @@ function deleteLetter() {
 function clearCurrentWord() {
     _currentWord = "";
     for (let i = 1; i <= 5; i++) {
-        document.getElementById('letter-' + i).classList.add('hide')
+        document.getElementById('letter-' + i).classList.add('hide');
     }
 }
 
